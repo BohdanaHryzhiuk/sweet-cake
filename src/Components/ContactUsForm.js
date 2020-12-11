@@ -8,9 +8,11 @@ export default class ContactUsForm extends Component {
         phone: ""
     }
 
+    /* При заповненні форм зміна state */
     isChangedName = e => { if (e.target.value !== this.state.name) { this.setState({ name: e.target.value }); } }
     isChangedPhone = e => { if (e.target.value !== this.state.phone) { this.setState({ phone: e.target.value }); } }
     
+    /* Надіслати контакти */
     sendContacts = async () => {
         let dataToFile = { "name": this.state.name, "phone": this.state.phone, "date": new Date() };
        

@@ -12,6 +12,7 @@ export default class Personal extends Component {
         file: ""
     }
 
+    /* Завантажити інформацію */
     componentDidMount() {
         fetch('data/dataPersonalCake.json')
         .then((response) => response.json())
@@ -20,6 +21,7 @@ export default class Personal extends Component {
         });
     }
 
+    /* Вивести на сторінку */
     renderfirst (cake, about) {
         const products = cake;
         console.log(products);
@@ -41,7 +43,8 @@ export default class Personal extends Component {
             }
         }
     }
-
+    
+    /* Якщо компонент обрано */
     isChecked = e =>  {
         let value = e.target.value;
         let oldText = this.state.checkboxText;
@@ -74,9 +77,11 @@ export default class Personal extends Component {
         return console.log(fil);
     }
 
+    /* Зміна додаткових полів */
     isChanged = e => { if (e.target.value !== this.state.text) { this.setState({ text: e.target.value }); } }
     isChangedFile = e => { if (e.target.value !== this.state.file) { this.setState({ text: e.target.file }); } }
-
+    
+    /* Додати в корзину */
     addProductToCart = () => {
         const oldCart = sessionStorage.getItem('cakeCart') ? sessionStorage.getItem('cakeCart') : "[]";
         const arrayCart =  JSON.parse(oldCart);  
@@ -84,7 +89,7 @@ export default class Personal extends Component {
         let cakeCart = {'id': '00000001', 'name': newCake, 'image': this.state.image, 'price': this.state.price, 'qty': 1};
 
         arrayCart.push(cakeCart);
-        sessionStorage.setItem('cakeCart', JSON.stringify(arrayCart))
+        sessionStorage.setItem('cakeCart', JSON.stringify(arrayCart));
     }
 
     render () {
@@ -92,7 +97,7 @@ export default class Personal extends Component {
         return (
             <div className="wrapper">
                 <div className="container-fluid all-pages">
-                    <h2>Створення персоналiзованного торту</h2>
+                    <h2>Створення персоналiзованного торта</h2>
                     
                     <div className="row"><div className="col-md-4 col-xs-12 cake-bis">
                         <h6>Коржі</h6>
@@ -123,7 +128,7 @@ export default class Personal extends Component {
                     <div className="personalPrice">
                     Ціна: {this.state.price} грн</div>
                     <div className="checkout-final"> 
-                        <a href="/" className="btn button-main big-button" onClick={this.addProductToCart}>Додати у корзину</a>
+                        <a href="/" className="btn button-main big-button" onClick={this.addProductToCart}>Додати у кошик</a>
                     </div>
                 </div>
             </div>

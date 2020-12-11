@@ -18,7 +18,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class Header extends Component {
     
     state = { isOpenMenu: false };
-
+    
+    /* Відкрити меню на маленьких екранах */
     openMenu = () => {
         if (this.state.isOpenMenu === false) { 
             this.setState({ isOpenMenu: true });
@@ -26,7 +27,8 @@ export default class Header extends Component {
             this.setState({ isOpenMenu: false }); 
         }
     }
-
+    
+    /* Адаптивна навігація */
     responsiveMenu () {
         let change = "";
 
@@ -66,6 +68,7 @@ export default class Header extends Component {
                 </div>
 			</div>
             
+            {/* Роутинг */}
             <Router>
                 <Switch>
                     <Route exact path="/" component={Home} />

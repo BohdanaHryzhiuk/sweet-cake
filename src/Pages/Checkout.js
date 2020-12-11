@@ -15,7 +15,8 @@ export default class Checkout extends Component {
         deliveryMethod: 0,
         completed: 0
     };
-
+    
+    /* Вивести товар з кошика */
     renderCheckoutList () {
     	const products = JSON.parse(sessionStorage.getItem('cakeCart'));
         this.totalPrice();
@@ -30,11 +31,12 @@ export default class Checkout extends Component {
                 </tr></tbody></table>
             ))
             ):(
-                <div className="emptyCart"> У корзині поки що нічого немає. </div>
+                <div className="emptyCart"> У кошику поки що нічого немає. </div>
             )
         );
     }
-
+    
+    /* При заповненні полів */
     isChanged = e => { 
     	let change = e.target.name;
     	
@@ -42,10 +44,12 @@ export default class Checkout extends Component {
     		this.setState({ [change]: e.target.value }); 
     	} 
     }
-
+    
+    /* Вибір оплати та доставки */
     isCheckedDelivery = e =>  { if (e.target.value !== this.state.deliveryMethod) { this.setState({ deliveryMethod: e.target.value }); } }
     isCheckedPay = e =>  { if (e.target.value !== this.state.paymentMethod) { this.setState({ paymentMethod: e.target.value }); } }
     
+    /* Загальна вартість */
     totalPrice () {
         let cakeCart = JSON.parse(sessionStorage.getItem('cakeCart'));
         let copyCakeCart = cakeCart;
@@ -65,6 +69,7 @@ export default class Checkout extends Component {
         }
     }
 
+    /* Відіслати замовлення */
     sendCheckout = async e =>  {
         e.preventDefault();
         let timer = null;
@@ -97,7 +102,8 @@ export default class Checkout extends Component {
 
         timer = setTimeout(() => this.setState({ completed: 1 }), 10000);
     }
-
+    
+    /* Склад замовлення */
     checkoutInner () {
         if (this.state.completed === 1) { sessionStorage.clear(); }
 
@@ -140,7 +146,7 @@ export default class Checkout extends Component {
                         <div><input type="radio" id="paymentMethod1" className="input-radio" onClick={this.isCheckedPay} name="paymentMethod" value="Готівкою"></input>
                         <label className="test" htmlFor="paymentMethod1">Оплата готівкою</label></div>
                         <div><input type="radio" id="paymentMethod2" className="input-radio" onClick={this.isCheckedPay} name="paymentMethod" value="На карту"></input>
-                        <label className="test" htmlFor="paymentMethod2">Перевід на карту Приват Банка</label></div>
+                        <label className="test" htmlFor="paymentMethod2">Переказ на карту Приват Банка</label></div>
                     
                         <h6>Спосіб доставки</h6>
                     

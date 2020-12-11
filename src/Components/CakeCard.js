@@ -10,12 +10,15 @@ function CakeCard(props) {
     const [priceNumber, setPriceNumber] = React.useState(props.priceCake);
     const [qtyNumber, setQtyNumber] = React.useState(1);
     const [isOpen, setIsOpen] = React.useState(false);
-
+    
+    /* Відкрити та закрити модальне вікно */
     const showModal = () => { setIsOpen(true); };
     const hideModal = () => { setIsOpen(false); setPriceNumber(props.priceCake); setQtyNumber(1); };
-
+    
+    /* Змінити загальну вартість */
     const changePriceNumber = e => { setQtyNumber(e.target.value); setPriceNumber(e.target.value*props.priceCake); };
-
+    
+    /* Додати товар у кошик */
     const addProductToCart = () => {
         const oldCart = sessionStorage.getItem('cakeCart') ? sessionStorage.getItem('cakeCart') : "[]";
         const arrayCart =  JSON.parse(oldCart);  
@@ -76,7 +79,7 @@ function CakeCard(props) {
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <button className="btn-primary" onClick={addProductToCart} >Додати у корзину</button>
+                    <button className="btn-primary" onClick={addProductToCart} >Додати у кошик</button>
                 </Modal.Footer>
             </Modal>
         </>

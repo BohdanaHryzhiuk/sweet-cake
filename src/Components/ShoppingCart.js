@@ -10,10 +10,12 @@ export default class ShoppingCart extends Component {
         newNumber: 1,
         priceNumberTotal: 0
     };
-
+    
+    /* Відкрити кошик */
     openModal = () => this.setState({ isOpen: true });
     closeModal = () => this.setState({ isOpen: false });
 
+    /* Загальна вартість */
     totalPrice () {
     	let cakeCart = JSON.parse(sessionStorage.getItem('cakeCart'));
     	let copyCakeCart = cakeCart;
@@ -31,6 +33,7 @@ export default class ShoppingCart extends Component {
         }
     }
 
+    /* Зміна кількості товару */
     upNumber = e =>  {
     	const target = e.target;
         let cakeCart=JSON.parse(sessionStorage.getItem('cakeCart'));
@@ -49,6 +52,7 @@ export default class ShoppingCart extends Component {
         this.setState({ isOpen: true });    
     }
 
+    /* Видалити товар */
     delItem (item) {
     	let cakeCart = JSON.parse(sessionStorage.getItem('cakeCart'));
         let copyCakeCart = cakeCart;
@@ -65,6 +69,7 @@ export default class ShoppingCart extends Component {
         this.setState({ isOpen: true });
     };
 
+    /* Вивести товар */
     renderItem () {
     	const products = JSON.parse(sessionStorage.getItem('cakeCart'));
         this.totalPrice();
@@ -80,7 +85,7 @@ export default class ShoppingCart extends Component {
                     <td className="cartDel"><button className="button-modal-win button-modal-win-grey" onClick={() =>this.delItem(product.name)} ><FontAwesomeIcon icon={faTrash} /></button></td>                         
                 </tr></tbody></table></div>))
             ):(
-                <div className="emptyCart"> У корзині поки що нічого немає. </div>
+                <div className="emptyCart"> У кошику поки що нічого немає. </div>
             )
         );
     }

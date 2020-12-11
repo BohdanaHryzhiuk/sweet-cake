@@ -36,7 +36,7 @@ export default class Home extends Component {
                             </div>
                             <div className="col-4">
                                 <img src="/3.png" alt=" " />
-                                <h5>Доставляємо навіть ввечері</h5>
+                                <h5>Доставляємо навіть увечері</h5>
                             </div>
                         </div>
                     </div>
