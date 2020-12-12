@@ -86,7 +86,8 @@ export default class Personal extends Component {
         const oldCart = sessionStorage.getItem('cakeCart') ? sessionStorage.getItem('cakeCart') : "[]";
         const arrayCart =  JSON.parse(oldCart);  
         let newCake = this.state.checkboxText + ' ' + this.state.text;
-        let cakeCart = {'id': '00000001', 'name': newCake, 'image': this.state.image, 'price': this.state.price, 'qty': 1};
+        let cakeCart = {'id': '1010101', 'name': newCake, 'image': this.state.image, 'price': this.state.price, 
+                        'weight': '2,5', 'qty': 1};
 
         arrayCart.push(cakeCart);
         sessionStorage.setItem('cakeCart', JSON.stringify(arrayCart));

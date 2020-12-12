@@ -23,7 +23,7 @@ function CakeCard(props) {
         const oldCart = sessionStorage.getItem('cakeCart') ? sessionStorage.getItem('cakeCart') : "[]";
         const arrayCart =  JSON.parse(oldCart);  
         let cakeCart = {'id': props.idCake, 'name': props.nameCake, 'image': props.imgURL, 'price': props.priceCake, 
-        'qty': qtyNumber};
+                        'weight': props.weightCake, 'qty': qtyNumber};
         let exist = 1;
 
         arrayCart.map(cake => {
@@ -51,7 +51,7 @@ function CakeCard(props) {
                     <h1>{props.nameCake}</h1>
                     <img src={props.imgURL} alt=" " />
                     <div className="about-solo-cake"><div className="about-solo-cake-inside">{props.aboutCake}</div></div>
-                    <div className="price-solo">{props.priceCake} грн</div>
+                    <div className="price-solo">{props.weightCake} кг / {props.priceCake} грн</div>
                     <button className="btn button-main big-button" onClick={showModal}>Замовити</button>
                 </div>
             </div>
@@ -65,7 +65,7 @@ function CakeCard(props) {
                         <div className="cake-modal-info">
                             <button onClick={hideModal} className="button-modal-win close-modal-win"><FontAwesomeIcon icon={faTimes} /></button>
                             <h1>{props.nameCake}</h1>                    
-                            <div className="price-modal">{props.priceCake} грн</div>
+                            <div className="price-modal">{props.weightCake} кг / {props.priceCake} грн</div>
                             <hr></hr>
                             <div className="cake-qty">
                                 <p>Кількість:</p> 

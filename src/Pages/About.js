@@ -22,7 +22,7 @@ export default class About extends Component {
                         </div>
                         <div className="col-12 col-md-5 about-map">
                             <iframe title="Ми на карті" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.37808388292!2d25.923630815064076!3d48.29557944812287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4734089debc80d91%3A0x67a82246561362dc!2z0YPQuy4g0KPQvdC40LLQtdGA0YHQuNGC0LXRgtGB0LrQsNGPLCAzNywg0KfQtdGA0L3QvtCy0YbRiywg0KfQtdGA0L3QvtCy0LjRhtC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNTgwMDA!5e0!3m2!1sru!2sua!4v1597932344434!5m2!1sru!2sua" 
-                            width="100%" height="300" frameborder="0" style={{border: '0'}} allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            width="100%" height="300" frameBorder="0" style={{border: '0'}} allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
                         </div>
                     </div>
                     <div className="contact-about d-none d-sm-block"> <ContactUsForm /> </div>

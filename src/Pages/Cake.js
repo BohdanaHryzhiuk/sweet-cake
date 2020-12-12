@@ -37,6 +37,7 @@ export default class Cake extends Component {
                     imgURL={cake.imgURL}
                     aboutCake={cake.aboutCake}
                     priceCake={cake.priceCake} 
+                    weightCake={cake.weightCake}
                 />
             </div>
         );
@@ -80,7 +81,6 @@ export default class Cake extends Component {
         const {search} = this.state;
         const uploadCakes = this.state.dataMainCakes;
 
-        {/* Пошук */}
         const filteredCakes = uploadCakes.filter( cake =>{
             return ((cake.nameCake.toLowerCase().indexOf( search.toLowerCase() ) !== -1) 
                 || (cake.aboutCake.toLowerCase().indexOf( search.toLowerCase() ) !== -1))

@@ -72,14 +72,13 @@ export default class Checkout extends Component {
     /* Відіслати замовлення */
     sendCheckout = async e =>  {
         e.preventDefault();
-        let timer = null;
 
         let orderNew = sessionStorage.getItem('cakeCart');
         let fullname = '';
         fullname = this.state.namecheck + ' ' + this.state.surnameCheck;
 
         let dataToFile = { "order": orderNew, 
-                           "nameSurname": fullname , 
+                           "nameSurname": fullname, 
                            "numberPhone": this.state.number, 
                            "email": this.state.email,
                            "address": this.state.address, 
@@ -97,10 +96,10 @@ export default class Checkout extends Component {
             body: JSON.stringify(dataToFile)
         }
         
-        const response = await fetch('http://localhost:3000/data/dataCheckout', config);
+        const response = await fetch('/data/dataCheckout', config);
         console.log(response.json());
 
-        timer = setTimeout(() => this.setState({ completed: 1 }), 10000);
+        setTimeout(() => this.setState({ completed: 1 }), 10000);
     }
     
     /* Склад замовлення */
