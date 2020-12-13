@@ -38,6 +38,8 @@ export default class Cake extends Component {
                     aboutCake={cake.aboutCake}
                     priceCake={cake.priceCake} 
                     weightCake={cake.weightCake}
+                    status={cake.status}
+                    dateOfCreating={cake.dateOfCreating}
                 />
             </div>
         );

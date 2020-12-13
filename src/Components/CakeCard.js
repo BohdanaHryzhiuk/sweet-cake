@@ -22,8 +22,8 @@ function CakeCard(props) {
     const addProductToCart = () => {
         const oldCart = sessionStorage.getItem('cakeCart') ? sessionStorage.getItem('cakeCart') : "[]";
         const arrayCart =  JSON.parse(oldCart);  
-        let cakeCart = {'id': props.idCake, 'name': props.nameCake, 'image': props.imgURL, 'price': props.priceCake, 
-                        'weight': props.weightCake, 'qty': qtyNumber};
+        let cakeCart = {'name': props.nameCake, 'image': props.imgURL, 'price': props.priceCake, 'about': props.aboutCake,
+                        'weight': props.weightCake, 'qty': qtyNumber, 'status': props.status, 'dateOfCreating': props.dateOfCreating};
         let exist = 1;
 
         arrayCart.map(cake => {

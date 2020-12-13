@@ -46,7 +46,7 @@ export default class Admin extends Component {
             body: JSON.stringify(dataAcess)
         }
         
-        const response = await fetch('http://localhost:3000/data/dataUser', config);
+        const response = await fetch('/data/dataUser', config);
         console.log(response.json());
 
         this.setState({ adminacess: 1 });

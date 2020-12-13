@@ -24,7 +24,7 @@ export default class ContactUsForm extends Component {
             body: JSON.stringify(dataToFile)
         }
         
-        const response = await fetch('http://localhost:3000/data/dataContactUs', config);
+        const response = await fetch('/data/dataContactUs', config);
         console.log(response);
     }
 

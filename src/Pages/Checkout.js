@@ -74,6 +74,10 @@ export default class Checkout extends Component {
         e.preventDefault();
 
         let orderNew = sessionStorage.getItem('cakeCart');
+        let orderPersonalNew = sessionStorage.getItem('cakePersonalCart');
+        
+        console.log(orderPersonalNew);
+        
         let fullname = '';
         fullname = this.state.namecheck + ' ' + this.state.surnameCheck;
 
