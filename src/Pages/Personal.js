@@ -112,7 +112,7 @@ export default class Personal extends Component {
     /* Додати в корзину */
     addProductToCart = () => {
         const oldCart = sessionStorage.getItem('cakeCart') ? sessionStorage.getItem('cakeCart') : "[]";
-        const oldPersonalCart = sessionStorage.getItem('cakePersonalCart') ? sessionStorage.getItem('cakePersonalCart') : "[]";
+        const oldPersonalCart =sessionStorage.getItem('cakePersonalCart') ? sessionStorage.getItem('cakePersonalCart') : "[]";
 
         const arrayCart =  JSON.parse(oldCart);
         const arrayPersonalCart =  JSON.parse(oldPersonalCart);    
@@ -129,9 +129,17 @@ export default class Personal extends Component {
 
         arrayCart.push(cakeCart);
         arrayPersonalCart.push(personalCakeCart);
-
         sessionStorage.setItem('cakeCart', JSON.stringify(arrayCart));
         sessionStorage.setItem('cakePersonalCart', JSON.stringify(arrayPersonalCart));
+        console.log(JSON.stringify(personalCakeCart));
+        
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(personalCakeCart)
+        };
+        fetch('https://localhost:44322/api/Personal', requestOptions)
+            .then(response => response.json());
     }
 
     weightChangesPrice () {
